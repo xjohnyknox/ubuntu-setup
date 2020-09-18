@@ -1,0 +1,26 @@
+#################################################
+# Playbook: Initial Workstation Setup
+#################################################
+---
+- hosts: linuxhost
+  become: true
+  vars_files:
+    - vars/default.yml
+
+  tasks:
+
+# Install Packages
+    - name: Update apt
+      apt: update_cache=yes
+
+    - name: Install required system packages
+      apt: name={{ sys_packages }} state=latest
+
+#  Scripts for install more packages
+    - name: "Installing {{ item }}"
+      command: "{{ item }}"
+      loop:
+          -  curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          - echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list
+          - apt update
+          - apt install teams
