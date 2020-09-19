@@ -1,9 +1,12 @@
 # ubuntu-setup 💻🔥🚀
-💻 This playbook will execute a initial setup for a brand new Ubuntu 20.04 systems.
+I was tired of spending so much time ⏰ 😫 in the process of setup a new installation of ubuntu, so with a playbook would be better to mainting a single script for all the usecases... (Spotify, VScode, steam, etc). 🚀
+
+
+💻 So, this playbook will execute a initial setup for a brand new Ubuntu 20.04 systems.
 
 🧰 A number of packages will be created with the options specified in the `vars/default.yml` variable file.
 
-Why? Becasue i was tired of spending so much time ⏰ 😫 in the process of setup a new installation of ubuntu, so with a playbook would be better to mainting a single script for all the usecases... (Spotify, VScode, steam, etc). 🚀
+![title](https://media1.tenor.com/images/0ac80d82231814ec9d7d331861b855c1/tenor.gif?itemid=5425050)
 
 ## Settings
 
