@@ -10,17 +10,26 @@
   tasks:
 
 # Install Packages
-    - name: Update apt
-      apt: update_cache=yes
+   - name: Update apt
+     apt: update_cache=yes
 
-    - name: Install required system packages
-      apt: name={{ sys_packages }} state=latest
+   - name: Install required system packages
+     apt: name={{ sys_packages }} state=latest
 
-#  Scripts for install more packages
-    - name: "Installing {{ item }}"
-      command: "{{ item }}"
-      loop:
-          -  curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-          - echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list
-          - apt update
-          - apt install teams
+#  Process for install Microsoft Teams from the official repo: Key
+    - name: Installing Key for Teams
+      apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        state: present
+
+ # Process for install Microsoft Teams from the official repo: Repo
+    - name: Installing more packages
+      apt_repository:
+        repo: deb https://packages.microsoft.com/repos/ms-teams stable main
+        state: present
+
+#Process for install Microsoft Teams from the official repo: Installing finally
+    - name: Installing teams finally!!!
+      apt:
+        name: teams
+        update_cache: yes
