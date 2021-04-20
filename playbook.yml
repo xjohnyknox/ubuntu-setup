@@ -2,7 +2,7 @@
 # Playbook: Initial Workstation Setup
 #################################################
 ---
-- hosts: linuxhost
+- hosts: localhost
   become: true
   vars_files:
     - vars/default.yml
@@ -68,3 +68,13 @@
      apt:
         name: brave-browser
         update_cache: yes
+
+# Install snap packages
+- name: Install Snap Packages
+  community.general.snap:
+    name:
+      - vscode
+      - slack
+      - rambox
+      - obs-studio
+      - notion-snap
