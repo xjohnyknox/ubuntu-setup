@@ -1,4 +1,4 @@
 ---
-#create_user: sammy
+#create_user: xjohnyx
 #copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
-sys_packages: [ 'curl', 'vim', 'git', 'wget','ubuntu-restricted-extras','vlc','vagrant','ca-certificates','software-properties-common','apt-transport-https','tmux','terminator','virtualbox']
+sys_packages: [ 'python3-pip','curl', 'vim', 'git', 'wget','ubuntu-restricted-extras','vlc','vagrant','ca-certificates','software-properties-common','apt-transport-https','tmux','terminator','virtualbox']
